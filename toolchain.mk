@@ -65,7 +65,7 @@ aarch32:
 aarch64:
 	$(call dltc,$(AARCH64_PATH),$(SRC_AARCH64_GCC),$(AARCH64_GCC_VERSION))
 
-CLANG_VER			?= 12.0.0
+CLANG_VER			?= 14.0.0
 CLANG_PATH			?= $(ROOT)/clang-$(CLANG_VER)
 
 # Download the Clang compiler with LLVM tools and compiler-rt libraries
