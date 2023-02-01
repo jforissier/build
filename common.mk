@@ -432,7 +432,7 @@ edk2-common:
 	$(call edk2-env) && \
 	export PACKAGES_PATH=$(EDK2_PATH):$(EDK2_PLATFORMS_PATH) && \
 	source $(EDK2_PATH)/edksetup.sh && \
-	$(MAKE) -j1 -C $(EDK2_PATH)/BaseTools PYTHON_COMMAND=true && \
+	$(MAKE) -C $(EDK2_PATH)/BaseTools PYTHON_COMMAND=true && \
 	$(call edk2-call) all
 
 .PHONY: edk2-clean-common
