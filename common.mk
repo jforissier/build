@@ -444,6 +444,14 @@ edk2-clean-common:
 	$(MAKE) -j1 -C $(EDK2_PATH)/BaseTools clean && \
 	$(call edk2-call) cleanall
 
+define gen-edk2-wrappers
+for c in gcc gcc-ar objcopy; do \
+	mkdir -p $(ROOT)/out && \
+	echo "$(CCACHE)$(AARCH64_CROSS_COMPILE)$$c" '"$$@"' >$(ROOT)/out/edk2-aarch64-$$c && \
+	chmod +x $(ROOT)/out/edk2-aarch64-$$c; \
+done
+endef
+
 ################################################################################
 # QEMU / QEMUv8
 ################################################################################

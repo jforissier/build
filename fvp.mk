@@ -175,7 +175,8 @@ define edk2-env
 endef
 
 define edk2-call
-	$(EDK2_TOOLCHAIN)_$(EDK2_ARCH)_PREFIX=$(AARCH64_CROSS_COMPILE) \
+	$(call gen-edk2-wrappers); \
+	$(EDK2_TOOLCHAIN)_$(EDK2_ARCH)_PREFIX=$(ROOT)/out/edk2-aarch64- \
 	build -n `getconf _NPROCESSORS_ONLN` -a $(EDK2_ARCH) \
 		-t $(EDK2_TOOLCHAIN) -p Platform/ARM/VExpressPkg/ArmVExpress-FVP-AArch64.dsc -b $(EDK2_BUILD)
 endef
